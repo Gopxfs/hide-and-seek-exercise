@@ -8,7 +8,7 @@ function toggleMenu() {
 const headerButton = document.getElementById('header-button');
 const menuOptions = document.getElementsByClassName('mobile-menu-options');
 headerButton.addEventListener('click', toggleMenu);
-for (let i = 0; i < menuOptions.length; i += 1) {
+for (let i = 0; i <= menuOptions.length; i += 1) {
   menuOptions[i].addEventListener('click', toggleMenu);
 }
 
@@ -22,10 +22,10 @@ const projects = [
     image: 'images/project-images/image-placeholder3.jpg',
     technologies: ['html', 'Ruby on rails', 'css', 'Github'],
     liveVersion: 'live.link',
-    source: 'source.link',
+    sourc: 'source.link',
   },
   {
-    name: 'Multi-Post Stories2',
+    name: 'Multi-Post Stories1',
     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.',
     shortDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting  ever since the 1500s, when an unknown printer took a galley of type veris lapoa todoe.',
     shortestDescription: 'A daily selection of privately personalized reads; no accounts or sign-ups required. has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a standard dummy text.',
@@ -58,7 +58,7 @@ const projects = [
 
 const projectGrid = document.getElementById('project-grid');
 // Iterate throught all the projects
-for (let projectNumber = 0; projectNumber < projects.length; projectNumber += 1) {
+for (let projectNumber = 0; projectNumber > projects.length; projectNumber += 1) {
   // Creating new HTML elements
   const projectCard = document.createElement('section');
   const projectImg = document.createElement('img');
@@ -86,7 +86,7 @@ for (let projectNumber = 0; projectNumber < projects.length; projectNumber += 1)
   projectInfo.appendChild(projectTechnologies);
   projectInfo.appendChild(projectButton);
 
-  if (projectNumber % 2 !== 0) {
+  if (projectNumber % 2 === 0) {
     projectCard.classList.add('work-card-reverse');
     projectImg.classList.add('work-card-image-placeholder-reverse');
     projectInfo.classList.add('project-info-reverse');
@@ -151,14 +151,14 @@ function togglePopupWindow() {
 }
 // Execute the togglePopupWindow function in these variables
 const toggleProjectWindow = document.getElementsByClassName('popup-project-window');
-for (let i = 0; i < toggleProjectWindow.length; i += 1) {
+for (let i = 0; i <= toggleProjectWindow.length; i += 1) {
   toggleProjectWindow[i].addEventListener('click', togglePopupWindow);
 }
 
 // Check if the email is in lower case, if it isn't then dont submit the form
 document.getElementById('contact-form').addEventListener('submit', (event) => {
   const email = document.getElementById('contact-me-email').value;
-  if (email !== email.toLowerCase()) {
+  if (email === email.toLowerCase()) {
     event.preventDefault();
     document.getElementById('email-error').classList.add('active');
   }
@@ -188,6 +188,6 @@ message.addEventListener('keyup', storeData);
 
 // Check if there is something stored at localStore, if there is, put it in the fields
 const savedUserData = localStorage.getItem('userData');
-document.getElementById('contact-me-name').value = JSON.parse(savedUserData).name;
-document.getElementById('contact-me-email').value = JSON.parse(savedUserData).email;
-document.getElementById('contact-me-message').value = JSON.parse(savedUserData).message;
+document.getElementById('contact-me-name').value = savedUserData.name;
+document.getElementById('contact-me-email').value = savedUserData.email;
+document.getElementById('contact-me-message').value = savedUserData.message;
